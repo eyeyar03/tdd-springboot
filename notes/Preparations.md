@@ -15,8 +15,8 @@
 
 6. To verify that you are able to publish to remote,
     - Open README.md
-    - In the new line, add "##<LastName> <FirstName>"
-    - In another line, add ###"<Your motto>"
+    - In the new line, add your LastName, FirstName.
+    - In another line, add your motto.
     - Commit and publish your branch to remote.
 
 See you in Master Class!
