@@ -14,4 +14,13 @@ class ProductEnumCostCalculatorTest {
 
     assertEquals(6, actual);
   }
+
+  @Test
+  void shouldReturn4PesosFor2Mangoes() {
+    ProductCostCalculator productCostCalculator = new ProductCostCalculator();
+
+    int actual = productCostCalculator.compute("Mango", 2);
+
+    assertEquals(4, actual);
+  }
 }
