@@ -3,6 +3,7 @@ package productcostcalculator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ProductCostCalculatorTest {
 
@@ -40,6 +41,15 @@ class ProductCostCalculatorTest {
         double expectedTotalPrice = productCostCalculator.compute("Mango", 3);
 
         assertEquals(8, expectedTotalPrice);
+    }
+
+    @Test
+    void shouldReturnException() {
+        ProductCostCalculator productCostCalculator = new ProductCostCalculator();
+
+        double expectedTotalPrice = productCostCalculator.compute("Mango", 3);
+
+        assertThrows(RuntimeException.class, () -> productCostCalculator.compute("Cucumber", 3));
     }
 
 }

@@ -7,6 +7,8 @@ public class ProductCostCalculator {
             price = 2;
         }else if(product.equalsIgnoreCase("mango")){
             price = 3;
+        }else{
+            throw new RuntimeException();
         }
         return price * quantity;
     }
