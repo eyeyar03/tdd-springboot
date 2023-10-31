@@ -16,12 +16,21 @@ class ProductCostCalculatorTest {
     }
 
     @Test
-    void shouldReturnFail() {
+    void shouldReturnFailForApple() {
         ProductCostCalculator productCostCalculator = new ProductCostCalculator();
 
         double expectedTotalPrice = productCostCalculator.compute("Apple", 3);
 
         assertEquals(5, expectedTotalPrice);
+    }
+
+    @Test
+    void shouldReturn6PesosFor3Mango() {
+        ProductCostCalculator productCostCalculator = new ProductCostCalculator();
+
+        double expectedTotalPrice = productCostCalculator.compute("Mango", 3);
+
+        assertEquals(9, expectedTotalPrice);
     }
 
 }
