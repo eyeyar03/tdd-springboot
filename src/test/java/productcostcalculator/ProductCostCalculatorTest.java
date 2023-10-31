@@ -9,7 +9,9 @@ class ProductCostCalculatorTest {
 
   @Test
   void shouldReturn6PesosFor3Apples() {
-    ProductCostCalculator productCostCalculator = new ProductCostCalculator();
+    PriceService priceService = new SimplePriceService();
+
+    ProductCostCalculator productCostCalculator = new ProductCostCalculator(priceService);
 
     double expectedTotalPrice = productCostCalculator.compute("Apple", 3);
 
@@ -18,7 +20,9 @@ class ProductCostCalculatorTest {
 
   @Test
   void shouldReturn9PesosFor3Mangoes() {
-    ProductCostCalculator productCostCalculator = new ProductCostCalculator();
+    PriceService priceService = new SimplePriceService();
+
+    ProductCostCalculator productCostCalculator = new ProductCostCalculator(priceService);
 
     double expectedTotalPrice = productCostCalculator.compute("Mango", 3);
 
@@ -27,7 +31,9 @@ class ProductCostCalculatorTest {
 
   @Test
   void shouldThrowPriceNotFoundExceptionWhenNoCorrespondingPriceFound() {
-    ProductCostCalculator productCostCalculator = new ProductCostCalculator();
+    PriceService priceService = new SimplePriceService();
+
+    ProductCostCalculator productCostCalculator = new ProductCostCalculator(priceService);
 
     assertThrows(PriceNotFoundException.class, () -> productCostCalculator.compute("Tomato", 3));
   }
