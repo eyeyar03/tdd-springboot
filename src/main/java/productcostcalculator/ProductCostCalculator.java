@@ -9,8 +9,14 @@ public class ProductCostCalculator {
   }
 
   public double compute(Order order) {
+    DiscountService discountService = new SimpleDiscountService();
+
     double price = priceService.getPrice(order.getProduct());
 
-    return price * order.getQuantity();
+    double discount = discountService.getDiscount(order.getDiscountCode());
+
+    double totalPrice = price * order.getQuantity();
+
+    return totalPrice - (totalPrice * discount);
   }
 }
