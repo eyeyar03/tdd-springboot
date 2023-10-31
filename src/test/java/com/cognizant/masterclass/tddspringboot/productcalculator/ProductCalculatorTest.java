@@ -16,4 +16,12 @@ public class ProductCalculatorTest {
         ProductCalculator productCalculator = new ProductCalculator();
         Assertions.assertEquals(9, productCalculator.compute("Mango", 3));
     }
+
+    @Test
+    public void shouldThrowErrorWhenProductIsInvalid() {
+        ProductCalculator productCalculator = new ProductCalculator();
+        Assertions.assertThrows(PriceNotFoundException.class, () -> productCalculator.compute("invalid", 3));
+    }
+
+
 }
