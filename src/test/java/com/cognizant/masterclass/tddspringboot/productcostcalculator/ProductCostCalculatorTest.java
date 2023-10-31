@@ -4,12 +4,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.cognizant.masterclass.tddspringboot.productcostcalculator.InvalidDiscountException;
-import com.cognizant.masterclass.tddspringboot.productcostcalculator.Order;
-import com.cognizant.masterclass.tddspringboot.productcostcalculator.PriceNotFoundException;
-import com.cognizant.masterclass.tddspringboot.productcostcalculator.PriceService;
-import com.cognizant.masterclass.tddspringboot.productcostcalculator.ProductCostCalculator;
-import com.cognizant.masterclass.tddspringboot.productcostcalculator.SimplePriceService;
 import com.cognizant.masterclass.tddspringboot.hamcrest.OrderMatcher;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -79,7 +73,8 @@ class ProductCostCalculatorTest {
   void twoOrdersShouldMatch() {
     Order actualOrder = Order.of("Apple", 20);
     Order expectedOrder = Order.of("Apple", 20);
-    //Order expectedOrder = Order.of("Mango", 20); // try this instead as expectedOrder and check how descriptive failure message is.
+    // Order expectedOrder = Order.of("Mango", 20); // try this instead as expectedOrder and check
+    // how descriptive failure message is.
 
     assertThat(actualOrder, OrderMatcher.isEqualToOrder(expectedOrder));
   }
