@@ -59,4 +59,11 @@ class ProductCostCalculatorTest {
 
     assertThrows(PriceNotFoundException.class, () -> productCostCalculator.compute(order));
   }
+
+  @Test
+  void shouldThrowInvalidDiscountExceptionWhenDiscountIsInvalid() {
+    Order order = Order.of("Apple", 3, "Mango15");
+
+    assertThrows(InvalidDiscountException.class, () -> productCostCalculator.compute(order));
+  }
 }
