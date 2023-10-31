@@ -1,43 +1,52 @@
 package com.cognizant.masterclass.tddspringboot.productcostcalculator;
 
+import com.cognizant.masterclass.tddspringboot.productcostcalculator.exeption.PriceNotFoundException;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ProductCostCalculatorTest {
+
+    private ProductCostCalculator productCostCalculator;
+    private PriceService priceService;
+
+    @BeforeEach
+    void init() {
+        priceService = new PriceService();
+        productCostCalculator = new ProductCostCalculator(priceService);
+    }
+
     @Test
     void shouldReturn6pesosFor3Apples(){
-        ProductCostCalculator productCostCalculator = new ProductCostCalculator();
+        Order order = new Order("Apple", 2);
+        int actual = productCostCalculator.compute(order);
 
-        double expectedTotalPrice = productCostCalculator.compute("Apple", 3);
-
-        assertEquals(6, expectedTotalPrice);
+        assertEquals(6, actual);
     }
 
     @Test
     void shouldReturnPriceFor3Mangoes(){
-        ProductCostCalculator productCostCalculator = new ProductCostCalculator();
+        Order order = new Order("Mango", 3);
+        int actual = productCostCalculator.compute(order);
 
-        double expectedTotalPrice = productCostCalculator.computeMangoes("Mangoes", 3);
-
-        assertEquals(6, expectedTotalPrice);
+        assertEquals(6, actual);
     }
 
     @Test
-    void shouldReturnPriceFor3MangoesPassed(){
-        ProductCostCalculator productCostCalculator = new ProductCostCalculator();
+    void shouldReturnPriceFor3Tomato(){
+        Order order = new Order("Tomato", 2);
 
-        double expectedTotalPrice = productCostCalculator.computeMangoes("Mangoes", 3);
+        int actual = productCostCalculator.compute(order);
 
-        assertEquals(9, expectedTotalPrice);
+        assertEquals(8, actual);
     }
 
     @Test
     void shouldReturnFailForProductUnavailable() {
-        ProductCostCalculator productCostCalculator = new ProductCostCalculator();
+        Order order = new Order("Avocado", 2);
 
-        boolean expectedTotalPrice = productCostCalculator.computeNotAvailable("Mangoes", false);
-
-        assertEquals("Tomatoes", expectedTotalPrice);
+        assertThrows(PriceNotFoundException.class, () -> productCostCalculator.compute(order));
     }
 }
