@@ -1,7 +1,10 @@
 package produccostcalculator;
 
+import exception.PriceNotFoundException;
+
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -18,7 +21,8 @@ public enum ProductEnum {
   }
 
   public static ProductEnum getProductEnum(String product) {
-    return PRODUCT_MAP.get(product);
+    return Optional.ofNullable(PRODUCT_MAP.get(product))
+        .orElseThrow(() -> new PriceNotFoundException(product));
   }
 
   private String product;
