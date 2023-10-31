@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 public class ProductCalculatorTest {
 
     @Test
-    public void shouldComputePriceFor2Apples() {
+    public void shouldComputePriceFor2Apples() throws PriceNotFoundException {
         ProductCalculator productCalculator = new ProductCalculator();
         Assertions.assertEquals(4, productCalculator.compute("Apple", 2));
     }
 
     @Test
-    public void shouldComputePriceFor3Mangos() {
+    public void shouldComputePriceFor3Mangos() throws PriceNotFoundException {
         ProductCalculator productCalculator = new ProductCalculator();
         Assertions.assertEquals(9, productCalculator.compute("Mango", 3));
     }
