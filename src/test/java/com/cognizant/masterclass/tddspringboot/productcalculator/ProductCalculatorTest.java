@@ -10,4 +10,10 @@ public class ProductCalculatorTest {
         ProductCalculator productCalculator = new ProductCalculator();
         Assertions.assertEquals(6, productCalculator.compute("Apple", 2));
     }
+
+    @Test
+    public void shouldRetunInvalidPriceFor3Mangos() {
+        ProductCalculator productCalculator = new ProductCalculator();
+        Assertions.assertEquals(9, productCalculator.compute("Mango", 3));
+    }
 }
