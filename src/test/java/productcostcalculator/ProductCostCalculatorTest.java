@@ -5,9 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
-public class ProductCostCalculatorTest {
+class ProductCostCalculatorTest {
 
     private ProductCostCalculator productCostCalculator;
 
@@ -19,24 +18,24 @@ public class ProductCostCalculatorTest {
 
     @Test
     void shouldReturn6PesosFor3Apples() {
-
-        double expectedTotalPrice = productCostCalculator.compute("Apple", 3);
+        Order order = Order.builder().product("Apple").quantity(3).build();
+        double expectedTotalPrice = productCostCalculator.compute(order);
 
         assertEquals(6, expectedTotalPrice);
     }
 
     @Test
     void shouldReturn9PesosFor3Mangoes() {
-
-        double expectedTotalPrice = productCostCalculator.compute("Mango", 3);
+        Order order = Order.builder().product("Mango").quantity(3).build();
+        double expectedTotalPrice = productCostCalculator.compute(order);
 
         assertEquals(9, expectedTotalPrice);
     }
 
     @Test
     void shouldThrowNullPointersFor2Tomatoes() {
-
-        assertThrows(PriceNotFoundException.class, () ->  productCostCalculator.compute("Tomato", 2));
+        Order order = Order.builder().product("Tomato").quantity(2).build();
+        assertThrows(PriceNotFoundException.class, () ->  productCostCalculator.compute(order));
     }
 
 }
