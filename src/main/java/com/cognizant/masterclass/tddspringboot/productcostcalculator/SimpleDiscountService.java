@@ -1,12 +1,16 @@
 package com.cognizant.masterclass.tddspringboot.productcostcalculator;
 
+import java.util.Optional;
+
 public class SimpleDiscountService implements DiscountService {
 
   @Override
   public double getDiscount(String discountCode, String product) {
     double discount = 0;
 
-    if (!discountCode.contains(product)) {
+    discountCode = Optional.ofNullable(discountCode).orElse("").trim();
+
+    if (!discountCode.isEmpty() && !discountCode.contains(product)) {
       throw new InvalidDiscountException();
     }
 
