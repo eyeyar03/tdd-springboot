@@ -3,13 +3,22 @@ package productcostcalculator;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 public class ProductCostCalculatorTest {
 
+    private ProductCostCalculator productCostCalculator;
+
+  @BeforeEach
+  void setup() {
+    PriceService priceService = new PriceService();
+    productCostCalculator = new ProductCostCalculator(priceService);
+  }
+
     @Test
     void shouldReturn6PesosFor3Apples() {
-        ProductCostCalculator productCostCalculator = new ProductCostCalculator();
 
         double expectedTotalPrice = productCostCalculator.compute("Apple", 3);
 
@@ -18,7 +27,6 @@ public class ProductCostCalculatorTest {
 
     @Test
     void shouldReturn9PesosFor3Mangoes() {
-        ProductCostCalculator productCostCalculator = new ProductCostCalculator();
 
         double expectedTotalPrice = productCostCalculator.compute("Mango", 3);
 
@@ -27,7 +35,6 @@ public class ProductCostCalculatorTest {
 
     @Test
     void shouldThrowNullPointersFor2Tomatoes() {
-        ProductCostCalculator productCostCalculator = new ProductCostCalculator();
 
         assertThrows(PriceNotFoundException.class, () ->  productCostCalculator.compute("Tomato", 2));
     }

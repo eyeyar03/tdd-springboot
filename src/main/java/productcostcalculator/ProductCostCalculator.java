@@ -4,11 +4,13 @@ import java.util.Optional;
 
 public class ProductCostCalculator {
 
-  double compute(String product, int quantity) throws PriceNotFoundException {
-      ProductPriceEnum productPriceEnum =
-        Optional.ofNullable(ProductPriceEnum.getByProduct(product))
-            .orElseThrow(() -> new PriceNotFoundException());
+  private final PriceService priceService;
 
-    return quantity * productPriceEnum.getPrice();
+  public ProductCostCalculator(PriceService priceService) {
+    this.priceService = priceService;
+  }
+
+  double compute(String product, int quantity) {
+    return quantity * priceService.getPrice(product);
   }
 }
