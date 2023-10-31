@@ -47,9 +47,14 @@ class ProductCostCalculatorTest {
     void shouldReturnException() {
         ProductCostCalculator productCostCalculator = new ProductCostCalculator();
 
-        double expectedTotalPrice = productCostCalculator.compute("Mango", 3);
-
         assertThrows(RuntimeException.class, () -> productCostCalculator.compute("Cucumber", 3));
+    }
+
+    @Test
+    void shouldReturnExceptionFail() {
+        ProductCostCalculator productCostCalculator = new ProductCostCalculator();
+
+        assertThrows(RuntimeException.class, () -> productCostCalculator.compute("Mango", 3));
     }
 
 }
