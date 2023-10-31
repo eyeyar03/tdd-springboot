@@ -1,10 +1,10 @@
-package hamcrest;
+package com.cognizant.masterclass.tddspringboot.hamcrest;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 import org.hamcrest.core.IsEqual;
-import productcostcalculator.Order;
+import com.cognizant.masterclass.tddspringboot.productcostcalculator.Order;
 
 public class OrderMatcher extends TypeSafeMatcher<Order> {
   private final String expectedProduct;

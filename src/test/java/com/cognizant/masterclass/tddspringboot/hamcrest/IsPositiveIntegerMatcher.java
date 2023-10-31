@@ -1,4 +1,4 @@
-package hamcrest;
+package com.cognizant.masterclass.tddspringboot.hamcrest;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;

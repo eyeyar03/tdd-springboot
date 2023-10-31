@@ -1,10 +1,16 @@
-package productcostcalculator;
+package com.cognizant.masterclass.tddspringboot.productcostcalculator;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import hamcrest.OrderMatcher;
+import com.cognizant.masterclass.tddspringboot.productcostcalculator.InvalidDiscountException;
+import com.cognizant.masterclass.tddspringboot.productcostcalculator.Order;
+import com.cognizant.masterclass.tddspringboot.productcostcalculator.PriceNotFoundException;
+import com.cognizant.masterclass.tddspringboot.productcostcalculator.PriceService;
+import com.cognizant.masterclass.tddspringboot.productcostcalculator.ProductCostCalculator;
+import com.cognizant.masterclass.tddspringboot.productcostcalculator.SimplePriceService;
+import com.cognizant.masterclass.tddspringboot.hamcrest.OrderMatcher;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

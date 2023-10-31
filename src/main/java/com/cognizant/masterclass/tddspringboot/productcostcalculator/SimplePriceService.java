@@ -1,4 +1,4 @@
-package productcostcalculator;
+package com.cognizant.masterclass.tddspringboot.productcostcalculator;
 
 public class SimplePriceService implements PriceService {
 

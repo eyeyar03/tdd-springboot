@@ -1,7 +1,7 @@
-package hamcrest;
+package com.cognizant.masterclass.tddspringboot.hamcrest;
 
 import org.junit.jupiter.api.Test;
-import productcostcalculator.Order;
+import com.cognizant.masterclass.tddspringboot.productcostcalculator.Order;
 
 import java.util.List;
 import java.util.Map;
