@@ -1,8 +1,10 @@
 package produccostcalculator;
 
+import exception.PriceNotFoundException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ProductEnumCostCalculatorTest {
 
@@ -22,5 +24,12 @@ class ProductEnumCostCalculatorTest {
     int actual = productCostCalculator.compute("Mango", 2);
 
     assertEquals(4, actual);
+  }
+
+  @Test
+  void shouldThrowPriceNotFoundExceptionForTomatoesAsItDoesNotExist() {
+    ProductCostCalculator productCostCalculator = new ProductCostCalculator();
+
+    assertThrows(PriceNotFoundException.class, () -> productCostCalculator.compute("Tomato", 2));
   }
 }
