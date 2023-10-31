@@ -15,6 +15,7 @@ public class ProductCalculatorTest {
         assertEquals(expectedApplePrice,actualApplePrice);
     }
 
+    @Test
     public void testComputeMango(){
         ProductCalculator productCalculator = new ProductCalculator();
         int actualMangoPrice = productCalculator.compute("mango", 3);
@@ -24,11 +25,12 @@ public class ProductCalculatorTest {
 
     private class ProductCalculator {
         public int compute(String condition, int pcs) {
+            PriceService priceService = new PriceService();
             int price = 0;
             if(condition.equals("apple")){
-                price = 2;
+                price = priceService.getApplePrice();
             } else if (condition.equals("mango")) {
-                
+                price = priceService.getMangoPrice();
             }
             return price * pcs;
         }
