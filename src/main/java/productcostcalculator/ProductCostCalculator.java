@@ -1,9 +1,14 @@
 package productcostcalculator;
 
 public class ProductCostCalculator {
-  public double compute(String product, int quantity) {
 
-    PriceService priceService = new SimplePriceService();
+  private final PriceService priceService;
+
+  public ProductCostCalculator(PriceService priceService) {
+    this.priceService = priceService;
+  }
+
+  public double compute(String product, int quantity) {
     double price = priceService.getPrice(product);
 
     return price * quantity;
