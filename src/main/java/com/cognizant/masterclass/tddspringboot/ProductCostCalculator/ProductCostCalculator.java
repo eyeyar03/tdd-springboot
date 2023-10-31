@@ -1,17 +1,15 @@
 package com.cognizant.masterclass.tddspringboot.ProductCostCalculator;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class ProductCostCalculator {
 
-    public Integer compute(String product, int qty) {
+    @Autowired
+    private  ProductCostService productCostService;
 
-        if (product.equals("apple")) {
-            return  2 * qty;
-        }
+    public Double compute(String product, double qty) throws PriceNotFoundException {
 
-        if (product.equals("mango")) {
-            return 4 * qty;
-        }
+        return qty * productCostService.getPrice(product);
 
-        return qty;
     }
 }
