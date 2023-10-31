@@ -1,3 +1,3 @@
 # TDD - Spring Boot Master Class
 Chua, Juvylyn
-"Mindset, it's all about mindset."
+"Mindset. It's all about mindset."
