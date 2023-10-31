@@ -8,6 +8,8 @@ public class SimpleDiscountService implements DiscountService {
 
     if ("Apple20".equals(discountCode)) {
       discount = .20;
+    } else if ("Mango15".equals(discountCode)) {
+      discount = .15;
     }
 
     return discount;
