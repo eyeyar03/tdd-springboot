@@ -7,7 +7,7 @@ public class PriceService {
   double getPrice(String product) throws PriceNotFoundException {
     ProductPriceEnum productPriceEnum =
         Optional.ofNullable(ProductPriceEnum.getByProduct(product))
-            .orElseThrow(() -> new PriceNotFoundException());
+            .orElseThrow(PriceNotFoundException::new);
 
     return productPriceEnum.getPrice();
   }

@@ -17,9 +17,9 @@ public enum ProductPriceEnum {
                 Arrays.stream(values()).collect(Collectors.toMap(ProductPriceEnum::getProduct, Function.identity()));
     }
 
-    private String product;
+    private final String product;
 
-    private double price;
+    private final double price;
 
     ProductPriceEnum(String product, double price) {
         this.product = product;

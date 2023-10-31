@@ -1,6 +1,5 @@
 package productcostcalculator;
 
-import java.util.Optional;
 
 public class ProductCostCalculator {
 
