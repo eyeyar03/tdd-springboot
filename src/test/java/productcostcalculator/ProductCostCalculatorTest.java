@@ -1,8 +1,10 @@
 package productcostcalculator;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import hamcrest.OrderMatcher;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -65,5 +67,14 @@ class ProductCostCalculatorTest {
     Order order = Order.of("Apple", 3, "Mango15");
 
     assertThrows(InvalidDiscountException.class, () -> productCostCalculator.compute(order));
+  }
+
+  @Test
+  void twoOrdersShouldMatch() {
+    Order actualOrder = Order.of("Apple", 20);
+    Order expectedOrder = Order.of("Apple", 20);
+    //Order expectedOrder = Order.of("Mango", 20); // try this instead as expectedOrder and check how descriptive failure message is.
+
+    assertThat(actualOrder, OrderMatcher.isEqualToOrder(expectedOrder));
   }
 }
