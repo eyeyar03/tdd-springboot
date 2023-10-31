@@ -9,6 +9,8 @@ public class ProductCostCalculator {
             price = 2;
         } else if(product.equals("Mango")){
             price = 3;
+        } else {
+            throw new Exception();
         }
 
         return price * quantity;
