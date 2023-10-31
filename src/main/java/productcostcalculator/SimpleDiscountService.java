@@ -3,8 +3,12 @@ package productcostcalculator;
 public class SimpleDiscountService implements DiscountService {
 
   @Override
-  public double getDiscount(String discountCode) {
+  public double getDiscount(String discountCode, String product) {
     double discount = 0;
+
+    if (!discountCode.contains(product)) {
+      throw new InvalidDiscountException();
+    }
 
     if ("Apple20".equals(discountCode)) {
       discount = .20;

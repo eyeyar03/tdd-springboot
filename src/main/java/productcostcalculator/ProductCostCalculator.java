@@ -13,7 +13,7 @@ public class ProductCostCalculator {
 
     double price = priceService.getPrice(order.getProduct());
 
-    double discount = discountService.getDiscount(order.getDiscountCode());
+    double discount = discountService.getDiscount(order.getDiscountCode(), order.getProduct());
 
     double totalPrice = price * order.getQuantity();
 

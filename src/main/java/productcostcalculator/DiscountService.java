@@ -2,5 +2,5 @@ package productcostcalculator;
 
 public interface DiscountService {
 
-    double getDiscount(String product);
+    double getDiscount(String discountCode, String product);
 }
