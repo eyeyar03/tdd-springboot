@@ -15,9 +15,22 @@ public class ProductCalculatorTest {
         assertEquals(expectedApplePrice,actualApplePrice);
     }
 
+    public void testComputeMango(){
+        ProductCalculator productCalculator = new ProductCalculator();
+        int actualMangoPrice = productCalculator.compute("mango", 3);
+        int expectedMangoPrice = 9;
+        assertEquals(expectedMangoPrice,actualMangoPrice);
+    }
+
     private class ProductCalculator {
         public int compute(String condition, int pcs) {
-            return 2 * pcs;
+            int price = 0;
+            if(condition.equals("apple")){
+                price = 2;
+            } else if (condition.equals("mango")) {
+                
+            }
+            return price * pcs;
         }
     }
 }
