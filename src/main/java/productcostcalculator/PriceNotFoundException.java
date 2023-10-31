@@ -1,2 +1,4 @@
-package productcostcalculator;public class PriceNotFoundException {
-}
+package productcostcalculator;
+
+public class PriceNotFoundException extends RuntimeException {}
+
