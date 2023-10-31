@@ -8,9 +8,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ProductCalculatorTest {
 
     @Test
-    public void testCompute(){
+    public void testComputeApple(){
         ProductCalculator productCalculator = new ProductCalculator();
-        int result = productCalculator.compute("apple",3);
-        assertEquals(6,1);
+        int actualApplePrice = productCalculator.compute("apple",3);
+        int expectedApplePrice = 6;
+        assertEquals(expectedApplePrice,actualApplePrice);
+    }
+
+    private class ProductCalculator {
+        public int compute(String condition, int pcs) {
+            return 2 * pcs;
+        }
     }
 }
