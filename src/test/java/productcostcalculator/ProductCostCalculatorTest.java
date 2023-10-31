@@ -14,4 +14,13 @@ public class ProductCostCalculatorTest {
 
         assertEquals(6, expectedTotalPrice);
     }
+
+    @Test
+    void shouldReturn9PesosFor3Mangoes() {
+        ProductCostCalculator productCostCalculator = new ProductCostCalculator();
+
+        double expectedTotalPrice = productCostCalculator.compute("Mango", 3);
+
+        assertEquals(9, expectedTotalPrice);
+    }
 }
