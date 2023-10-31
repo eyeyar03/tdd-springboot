@@ -10,7 +10,7 @@ class ProductCostCalculatorTest {
   void shouldReturn6PesosFor3Apples() {
     ProductCostCalculator productCostCalculator = new ProductCostCalculator();
 
-    int actual = productCostCalculator.compute("", 2);
+    int actual = productCostCalculator.compute("", 3);
 
     assertEquals(6, actual);
   }
