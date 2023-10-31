@@ -11,6 +11,6 @@ class TestProductCostCalculator {
         ProductCostCalculator calc = new ProductCostCalculator();
 
         int total = calc.compute("apple", 10);
-        Assertions.assertEquals(6, total);
+        Assertions.assertEquals(20, total);
     }
 }
