@@ -8,9 +8,9 @@ public class ProductCostCalculator {
     this.priceService = priceService;
   }
 
-  public double compute(String product, int quantity) {
-    double price = priceService.getPrice(product);
+  public double compute(Order order) {
+    double price = priceService.getPrice(order.getProduct());
 
-    return price * quantity;
+    return price * order.getQuantity();
   }
 }
