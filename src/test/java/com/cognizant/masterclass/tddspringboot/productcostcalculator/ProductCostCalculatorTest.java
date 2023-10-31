@@ -32,4 +32,12 @@ class ProductCostCalculatorTest {
         assertEquals(9, expectedTotalPrice);
     }
 
+    @Test
+    void shouldReturnFailForProductUnavailable() {
+        ProductCostCalculator productCostCalculator = new ProductCostCalculator();
+
+        boolean expectedTotalPrice = productCostCalculator.computeNotAvailable("Mangoes", false);
+
+        assertEquals("Tomatoes", expectedTotalPrice);
+    }
 }
