@@ -22,20 +22,23 @@ class ProductEnumCostCalculatorTest {
 
   @Test
   void shouldReturn6PesosFor2Apples() {
-    int actual = productCostCalculator.compute("Apple", 2);
+    Order order = new Order("Apple", 2);
+    int actual = productCostCalculator.compute(order);
 
     assertEquals(6, actual);
   }
 
   @Test
   void shouldReturn4PesosFor2Mangoes() {
-    int actual = productCostCalculator.compute("Mango", 2);
+    Order order = new Order("Mango", 2);
+    int actual = productCostCalculator.compute(order);
 
     assertEquals(4, actual);
   }
 
   @Test
   void shouldThrowPriceNotFoundExceptionForTomatoesAsItDoesNotExist() {
-    assertThrows(PriceNotFoundException.class, () -> productCostCalculator.compute("Tomato", 2));
+    Order order = new Order("Tomato", 2);
+    assertThrows(PriceNotFoundException.class, () -> productCostCalculator.compute(order));
   }
 }

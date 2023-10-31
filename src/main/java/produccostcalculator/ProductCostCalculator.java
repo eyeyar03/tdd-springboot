@@ -8,7 +8,7 @@ public class ProductCostCalculator {
     this.priceService = priceService;
   }
 
-  public int compute(String product, int quantity) {
-    return quantity * priceService.getPrice(product);
+  public int compute(Order order) {
+    return order.getQuantity() * priceService.getPrice(order.getProduct());
   }
 }
