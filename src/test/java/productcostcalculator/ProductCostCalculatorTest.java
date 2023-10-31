@@ -27,6 +27,15 @@ class ProductCostCalculatorTest {
   }
 
   @Test
+  void shouldReturnDiscountedPriceFor3Apples() {
+    Order order = Order.of("Apple", 3, "Apple20");
+
+    double expectedTotalPrice = productCostCalculator.compute(order);
+
+    assertEquals(4.8, expectedTotalPrice);
+  }
+
+  @Test
   void shouldReturn9PesosFor3Mangoes() {
     Order order = Order.of("Mango", 3);
 
