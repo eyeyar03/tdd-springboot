@@ -4,13 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ProductCostCalculatorTest {
+class ProductEnumCostCalculatorTest {
 
   @Test
-  void shouldReturn6PesosFor3Apples() {
+  void shouldReturn6PesosFor2Apples() {
     ProductCostCalculator productCostCalculator = new ProductCostCalculator();
 
-    int actual = productCostCalculator.compute("", 3);
+    int actual = productCostCalculator.compute("Apple", 2);
 
     assertEquals(6, actual);
   }
