@@ -6,7 +6,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public enum ProductEnum {
-  APPLE("Apple", 3);
+  APPLE("Apple", 3),
+  MANGO("Mango", 2);
 
   private static final Map<String, ProductEnum> PRODUCT_MAP;
 
