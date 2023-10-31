@@ -1,14 +1,10 @@
 package productcostcalculator;
 
 public class ProductCostCalculator {
+    ProductService productService = new ProductService();
 
-    public int compute(String name, int quantity){
-        return switch (name) {
-            case "Apples" -> 2 * quantity;
-            case "Mangoes" -> 3 * quantity;
-            case "Oranges" -> 4 * quantity;
-            default -> throw new PriceNotFoundException();
-        };
+    public int compute(Order order) throws PriceNotFoundException {
+        return order.quantity * productService.GetPrice(order.product);
     }
 }
 
