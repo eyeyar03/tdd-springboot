@@ -1,10 +1,9 @@
 package productcostcalculator;
 
-import org.junit.jupiter.api.Test;
-import org.mockito.internal.matchers.Null;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
 
 public class ProductCostCalculatorTest {
 
@@ -30,7 +29,7 @@ public class ProductCostCalculatorTest {
     void shouldThrowNullPointersFor2Tomatoes() {
         ProductCostCalculator productCostCalculator = new ProductCostCalculator();
 
-        assertThrows(PriceNowFoundException.class, () ->  productCostCalculator.compute("Tomato", 2));
+        assertThrows(PriceNotFoundException.class, () ->  productCostCalculator.compute("Tomato", 2));
     }
 
 }
