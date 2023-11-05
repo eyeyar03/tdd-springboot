@@ -1,6 +1,7 @@
 package productcostcalculator;
 
 import exception.PriceNotFoundException;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,10 +9,18 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ProductCostCalculatorTest {
 
+    private PriceService priceService;
+
+    private ProductCostCalculator productCostCalculator;
+
+    @BeforeEach
+    public void setup() {
+        priceService = new PriceService();
+        productCostCalculator = new ProductCostCalculator(priceService);
+    }
+
     @Test
     void shouldReturnComputedPriceFor3Apples() {
-        ProductCostCalculator productCostCalculator = new ProductCostCalculator();
-
         double expectedTotalPrice = productCostCalculator.compute("Apple", 3);
 
         assertEquals(6, expectedTotalPrice);
@@ -19,8 +28,6 @@ class ProductCostCalculatorTest {
 
     @Test
     void shouldReturnComputedPriceFor3Mangoes() {
-        ProductCostCalculator productCostCalculator = new ProductCostCalculator();
-
         double expectedTotalPrice = productCostCalculator.compute("Mango", 3);
 
         assertEquals(9, expectedTotalPrice);
@@ -28,8 +35,6 @@ class ProductCostCalculatorTest {
 
     @Test
     void shouldThrowAnErrorWhenPriceNotFound() {
-        ProductCostCalculator productCostCalculator = new ProductCostCalculator();
-
         assertThrows(PriceNotFoundException.class, () -> productCostCalculator.compute("Tomato", 3));
     }
 
