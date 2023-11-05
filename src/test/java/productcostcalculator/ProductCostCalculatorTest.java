@@ -21,21 +21,22 @@ class ProductCostCalculatorTest {
 
     @Test
     void shouldReturnComputedPriceFor3Apples() {
-        double expectedTotalPrice = productCostCalculator.compute("Apple", 3);
+
+        double expectedTotalPrice = productCostCalculator.compute(new Order("Apple", 3));
 
         assertEquals(6, expectedTotalPrice);
     }
 
     @Test
     void shouldReturnComputedPriceFor3Mangoes() {
-        double expectedTotalPrice = productCostCalculator.compute("Mango", 3);
+        double expectedTotalPrice = productCostCalculator.compute(new Order("Mango", 3));
 
         assertEquals(9, expectedTotalPrice);
     }
 
     @Test
     void shouldThrowAnErrorWhenPriceNotFound() {
-        assertThrows(PriceNotFoundException.class, () -> productCostCalculator.compute("Tomato", 3));
+        assertThrows(PriceNotFoundException.class, () -> productCostCalculator.compute(new Order("Tomato", 3)));
     }
 
 }

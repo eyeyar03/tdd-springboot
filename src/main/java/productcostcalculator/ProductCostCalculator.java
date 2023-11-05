@@ -11,8 +11,8 @@ public class ProductCostCalculator {
         this.priceService = priceService;
     }
 
-    public double compute(String product, int quantity) {
+    public double compute(Order order) {
 
-        return priceService.getProductPriceByProductName(product) * quantity;
+        return priceService.getProductPriceByProductName(order.getProduct()) * order.getQuantity();
     }
 }
