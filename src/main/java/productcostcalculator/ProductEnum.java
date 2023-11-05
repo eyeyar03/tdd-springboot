@@ -6,8 +6,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public enum ProductEnum {
-    APPLE("Apple", 2),
-    MANGO("Mango", 3);
+    APPLE("Apple", 2), MANGO("Mango", 3);
 
     private String name;
     private double price;
@@ -15,15 +14,12 @@ public enum ProductEnum {
     private static final Map<String, ProductEnum> PRODUCT_MAP;
 
     static {
-        PRODUCT_MAP =
-                Arrays.stream(values())
-                        .collect(Collectors.toMap(ProductEnum::getName, Function.identity()));
+        PRODUCT_MAP = Arrays.stream(values()).collect(Collectors.toMap(ProductEnum::getName, Function.identity()));
     }
 
-    public static ProductEnum getProductEnum(String product) {
-        return PRODUCT_MAP.get(product);
+    public static ProductEnum getProductEnumByProductName(String name) {
+        return PRODUCT_MAP.get(name);
     }
-
 
     ProductEnum(String name, double price) {
         this.name = name;

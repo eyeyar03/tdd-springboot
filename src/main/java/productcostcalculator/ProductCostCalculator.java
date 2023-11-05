@@ -2,6 +2,7 @@ package productcostcalculator;
 
 public class ProductCostCalculator {
     public double compute(String product, int quantity) {
-        return 2 * quantity;
+        ProductEnum productEnum = ProductEnum.getProductEnumByProductName(product);
+        return productEnum.getPrice() * quantity;
     }
 }
