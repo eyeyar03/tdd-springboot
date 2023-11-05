@@ -1,8 +1,11 @@
 package productcostcalculator;
 
 public class ProductCostCalculator {
+
+    PriceService priceService = new PriceService();
+
     public double compute(String product, int quantity) {
-        ProductEnum productEnum = ProductEnum.getProductEnumByProductName(product);
-        return productEnum.getPrice() * quantity;
+
+        return priceService.getProductPriceByProductName(product) * quantity;
     }
 }
