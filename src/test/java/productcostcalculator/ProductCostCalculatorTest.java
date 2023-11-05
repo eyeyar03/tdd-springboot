@@ -19,7 +19,7 @@ class ProductCostCalculatorTest {
     void shouldReturnComputedPriceFor3Mangoes() {
         ProductCostCalculator productCostCalculator = new ProductCostCalculator();
 
-        double expectedTotalPrice = productCostCalculator.compute("Mangoes", 3);
+        double expectedTotalPrice = productCostCalculator.compute("Mango", 3);
 
         assertEquals(9, expectedTotalPrice);
     }
